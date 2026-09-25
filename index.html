@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Нурадиль — 11 лет 🎂</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    -webkit-tap-highlight-color:transparent;
+}
+
+:root{
+    --green:#9cff00;
+    --green2:#c8ff63;
+    --dark:#050805;
+    --card:#0b1108;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(156,255,0,.13),
+            transparent 35%
+        ),
+        #050805;
+
+    color:white;
+    font-family:'Nunito',sans-serif;
+
+    overflow-x:hidden;
+}
+
+/* ================= ФОН ================= */
+
+#stars{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:-5;
+}
+
+.glow{
+    position:fixed;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(156,255,0,.13),
+            transparent 70%
+        );
+
+    filter:blur(20px);
+
+    pointer-events:none;
+}
+
+/* ================= ВЕРХ ================= */
+
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+
+    width:100%;
+
+    padding:
+        calc(18px + env(safe-area-inset-top))
+        20px
+        15px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    z-index:50;
+
+    background:
+        linear-gradient(
+            rgba(5,8,5,.9),
+            transparent
+        );
+}
+
+.logo{
+    font-weight:900;
+    color:var(--green);
+    font-size:14px;
+    letter-spacing:1px;
+}
+
+.age{
+    font-weight:800;
+    font-size:12px;
+    color:#777;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100svh;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:
+        100px
+        20px
+        60px;
+
+    position:relative;
+}
+
+.small{
+    color:var(--green);
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    margin-bottom:15px;
+
+    animation:
+        fadeUp .8s ease;
+}
+
+.hero h1{
+    font-size:
+        clamp(48px,15vw,78px);
+
+    line-height:.9;
+
+    font-weight:900;
+
+    letter-spacing:-3px;
+
+    text-shadow:
+        0 0 25px
+        rgba(156,255,0,.2);
+
+    animation:
+        title .9s ease;
+}
+
+.hero h1 span{
+    display:block;
+    color:var(--green);
+}
+
+.hero p{
+    max-width:340px;
+
+    color:#999;
+
+    font-size:15px;
+
+    line-height:1.6;
+
+    margin-top:22px;
+
+    animation:
+        fadeUp 1s .2s both;
+}
+
+/* ================= ТОРТ ================= */
+
+.cake-area{
+    margin-top:65px;
+
+    position:relative;
+
+    width:300px;
+    height:250px;
+
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+}
+
+/* свечи */
+
+.candles{
+    position:absolute;
+
+    top:0;
+
+    width:230px;
+    height:70px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-end;
+
+    gap:7px;
+
+    z-index:5;
+}
+
+.candle{
+    position:relative;
+
+    width:8px;
+    height:45px;
+
+    border-radius:4px;
+
+    background:
+        repeating-linear-gradient(
+            -45deg,
+            #ffffff 0px,
+            #ffffff 4px,
+            var(--green) 4px,
+            var(--green) 8px
+        );
+
+    transform-origin:bottom;
+
+    box-shadow:
+        0 0 5px
+        rgba(156,255,0,.4);
+}
+
+/* фитиль */
+
+.candle::before{
+    content:"";
+
+    position:absolute;
+
+    width:2px;
+    height:6px;
+
+    background:#222;
+
+    top:-6px;
+    left:3px;
+}
+
+/* огонь */
+
+.flame{
+    position:absolute;
+
+    left:50%;
+
+    top:-32px;
+
+    width:14px;
+    height:23px;
+
+    transform:
+        translateX(-50%)
+        scale(0);
+
+    transform-origin:bottom;
+
+    border-radius:
+        50% 50%
+        50% 50%;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 75%,
+            white 0 15%,
+            #dfff63 25%,
+            var(--green) 55%,
+            #62ff00 75%
+        );
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            var(--green)
+        )
+        drop-shadow(
+            0 0 20px
+            rgba(156,255,0,.8)
+        );
+}
+
+.candle.lit .flame{
+    animation:
+        flame .25s ease forwards,
+        flicker .8s .25s infinite alternate;
+}
+
+@keyframes flame{
+    to{
+        transform:
+            translateX(-50%)
+            scale(1);
+    }
+}
+
+@keyframes flicker{
+    from{
+        transform:
+            translateX(-50%)
+            scale(1)
+            rotate(-3deg);
+    }
+
+    to{
+        transform:
+            translateX(-50%)
+            scale(1.08)
+            rotate(4deg);
+    }
+}
+
+/* торт */
+
+.cake{
+    position:absolute;
+
+    bottom:15px;
+
+    width:250px;
+    height:115px;
+}
+
+/* верхний слой */
+
+.cake-top{
+    position:absolute;
+
+    left:10px;
+    top:0;
+
+    width:230px;
+    height:55px;
+
+    border-radius:
+        50% 50%
+        18px 18px;
+
+    background:
+        linear-gradient(
+            #caff63,
+            #91e900
+        );
+
+    box-shadow:
+        0 10px 30px
+        rgba(156,255,0,.2);
+}
+
+/* крем */
+
+.cake-top::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+
+    bottom:-15px;
+
+    height:28px;
+
+    background:#eaffb0;
+
+    border-radius:
+        0 0 50%
+        50%;
+}
+
+/* нижний слой */
+
+.cake-bottom{
+    position:absolute;
+
+    left:0;
+
+    bottom:0;
+
+    width:250px;
+    height:65px;
+
+    border-radius:
+        15px 15px 25px 25px;
+
+    background:
+        linear-gradient(
+            #77cf00,
+            #4a9700
+        );
+
+    box-shadow:
+        0 20px 45px
+        rgba(0,0,0,.5);
+}
+
+/* декор */
+
+.dot{
+    position:absolute;
+
+    width:7px;
+    height:7px;
+
+    background:#eaffb0;
+
+    border-radius:50%;
+
+    z-index:5;
+}
+
+/* ================= КНОПКА ================= */
+
+.light-button{
+    margin-top:50px;
+
+    width:100%;
+    max-width:330px;
+
+    border:none;
+
+    background:var(--green);
+
+    color:#071000;
+
+    padding:19px 20px;
+
+    border-radius:16px;
+
+    font-size:15px;
+
+    font-weight:900;
+
+    box-shadow:
+        0 0 30px
+        rgba(156,255,0,.18);
+
+    transition:.2s;
+
+    cursor:pointer;
+}
+
+.light-button:active{
+    transform:scale(.95);
+}
+
+.light-button.done{
+    background:#dfff82;
+}
+
+/* ================= ПОЗДРАВЛЕНИЕ ================= */
+
+.message{
+    min-height:100svh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:80px 25px;
+
+    opacity:0;
+
+    transform:
+        translateY(40px);
+
+    transition:
+        opacity 1s,
+        transform 1s;
+}
+
+.message.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.message .emoji{
+    font-size:55px;
+
+    margin-bottom:25px;
+
+    animation:
+        bounce 1.5s infinite;
+}
+
+.message h2{
+    font-size:
+        clamp(38px,11vw,60px);
+
+    line-height:.95;
+
+    font-weight:900;
+}
+
+.message h2 span{
+    color:var(--green);
+
+    text-shadow:
+        0 0 25px
+        rgba(156,255,0,.3);
+}
+
+.message p{
+    margin-top:25px;
+
+    color:#999;
+
+    font-size:15px;
+
+    line-height:1.8;
+
+    max-width:370px;
+}
+
+/* ================= КАРТОЧКИ ================= */
+
+.info{
+    padding:
+        80px
+        20px;
+}
+
+.section-title{
+    text-align:center;
+
+    font-size:30px;
+
+    font-weight:900;
+
+    margin-bottom:35px;
+}
+
+.section-title span{
+    color:var(--green);
+}
+
+.cards{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:12px;
+}
+
+.card{
+    background:
+        linear-gradient(
+            145deg,
+            #101810,
+            #080c08
+        );
+
+    border:
+        1px solid
+        rgba(156,255,0,.1);
+
+    border-radius:20px;
+
+    padding:23px;
+
+    min-height:160px;
+
+    transition:.2s;
+}
+
+.card:active{
+    transform:scale(.97);
+}
+
+.icon{
+    font-size:32px;
+
+    margin-bottom:20px;
+}
+
+.card h3{
+    font-size:15px;
+
+    font-weight:900;
+
+    margin-bottom:8px;
+}
+
+.card p{
+    color:#777;
+
+    font-size:12px;
+
+    line-height:1.5;
+}
+
+/* ================= ФИНАЛ ================= */
+
+.final{
+    min-height:80svh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:50px 20px;
+}
+
+.final-number{
+    font-size:120px;
+
+    font-weight:900;
+
+    line-height:.8;
+
+    color:var(--green);
+
+    text-shadow:
+        0 0 45px
+        rgba(156,255,0,.25);
+
+    animation:
+        pulse 2s infinite;
+}
+
+.final h2{
+    margin-top:35px;
+
+    font-size:30px;
+
+    font-weight:900;
+}
+
+.final p{
+    margin-top:15px;
+
+    color:#777;
+
+    font-size:14px;
+
+    line-height:1.7;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    text-align:center;
+
+    padding:
+        30px
+        20px
+        calc(30px + env(safe-area-inset-bottom));
+
+    color:#444;
+
+    font-size:10px;
+}
+
+/* ================= CONFETTI ================= */
+
+.confetti{
+    position:fixed;
+
+    top:-20px;
+
+    z-index:100;
+
+    font-size:15px;
+
+    animation:
+        fall linear forwards;
+
+    pointer-events:none;
+}
+
+@keyframes fall{
+    to{
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+    }
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes title{
+    from{
+        opacity:0;
+        transform:
+            translateY(25px)
+            scale(.95);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes bounce{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+}
+
+@keyframes pulse{
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.06);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="stars"></canvas>
+
+<div class="glow"></div>
+
+<header class="header">
+
+    <div class="logo">
+        NУРАДИЛЬ 🎂
+    </div>
+
+    <div class="age">
+        LEVEL 11
+    </div>
+
+</header>
+
+
+<!-- ================= ГЛАВНЫЙ ЭКРАН ================= -->
+
+<section class="hero">
+
+    <div class="small">
+        🎉 СЕГОДНЯ ОСОБЕННЫЙ ДЕНЬ
+    </div>
+
+    <h1>
+        НУРАДИЛЬ
+        <span>11 ЛЕТ!</span>
+    </h1>
+
+    <p>
+        Сегодня ты переходишь
+        на новый уровень.
+        Но сначала...
+        нужно зажечь свечи. 🔥
+    </p>
+
+
+    <!-- ТОРТ -->
+
+    <div class="cake-area">
+
+        <div class="candles" id="candles">
+
+            <!-- 11 свечей создаются JS -->
+
+        </div>
+
+        <div class="cake">
+
+            <div class="cake-top"></div>
+
+            <div class="cake-bottom"></div>
+
+            <span class="dot" style="left:35px;top:80px"></span>
+            <span class="dot" style="left:75px;top:95px"></span>
+            <span class="dot" style="left:125px;top:82px"></span>
+            <span class="dot" style="left:175px;top:95px"></span>
+            <span class="dot" style="left:210px;top:80px"></span>
+
+        </div>
+
+    </div>
+
+
+    <button
+        class="light-button"
+        id="lightButton"
+        onclick="lightCandles()"
+    >
+        🕯️ ЗАЖЕЧЬ СВЕЧИ
+    </button>
+
+
+    <div class="swipe"
+         style="
+            margin-top:30px;
+            color:#444;
+            font-size:10px;
+         ">
+        ↓ ПОТЯНИ ВНИЗ ↓
+    </div>
+
+</section>
+
+
+<!-- ================= ПОЗДРАВЛЕНИЕ ================= -->
+
+<section
+    class="message"
+    id="message"
+>
+
+    <div class="emoji">
+        🎉
+    </div>
+
+    <h2>
+        С ДНЁМ<br>
+        <span>РОЖДЕНИЯ!</span>
+    </h2>
+
+    <p>
+        Нурадиль, тебе уже 11! 🥳
+        <br><br>
+
+        Желаю тебе огромного количества
+        крутых моментов, побед в CS,
+        весёлых приключений и исполнения
+        самых крутых желаний.
+        <br><br>
+
+        Пусть этот год будет
+        ещё круче предыдущего! 💚
+    </p>
+
+</section>
+
+
+<!-- ================= КАРТОЧКИ ================= -->
+
+<section class="info">
+
+    <h2 class="section-title">
+        ЧТО ЛЮБИТ<br>
+        <span>НУРАДИЛЬ?</span>
+    </h2>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="icon">
+                🎮
+            </div>
+
+            <h3>
+                COUNTER-STRIKE
+            </h3>
+
+            <p>
+                Главная игра.
+                Больше побед,
+                меньше поражений.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                🦸
+            </div>
+
+            <h3>
+                MARVEL
+            </h3>
+
+            <p>
+                Герои, суперсилы
+                и невероятные
+                приключения.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                💚
+            </div>
+
+            <h3>
+                ЛЮБИМЫЙ ЦВЕТ
+            </h3>
+
+            <p>
+                Яркий зелёный.
+                Теперь он стал
+                цветом этого сайта.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                🏆
+            </div>
+
+            <h3>
+                LEVEL 11
+            </h3>
+
+            <p>
+                Новый возраст.
+                Новый уровень.
+                Новые приключения.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ФИНАЛ ================= -->
+
+<section class="final">
+
+    <div class="final-number">
+        11
+    </div>
+
+    <h2>
+        НОВЫЙ УРОВЕНЬ<br>
+        <span style="color:#9cff00">
+            НАЧАЛСЯ! 💚
+        </span>
+    </h2>
+
+    <p>
+        С днём рождения, Нурадиль!<br>
+        Твой следующий уровень
+        только начинается.
+    </p>
+
+</section>
+
+
+<footer>
+    Сделано с любовью братом 💚<br><br>
+    NURADIL // LEVEL 11
+</footer>
+
+
+<script>
+
+/* ================= СОЗДАЁМ 11 СВЕЧЕЙ ================= */
+
+const candles =
+    document.getElementById("candles");
+
+for(let i=0;i<11;i++){
+
+    const candle =
+        document.createElement("div");
+
+    candle.className="candle";
+
+    candle.innerHTML=
+        '<div class="flame"></div>';
+
+    candles.appendChild(candle);
+
+}
+
+
+/* ================= ЗАЖИГАЕМ ================= */
+
+let alreadyLit=false;
+
+function lightCandles(){
+
+    if(alreadyLit) return;
+
+    alreadyLit=true;
+
+    const allCandles =
+        document.querySelectorAll(".candle");
+
+    const button =
+        document.getElementById("lightButton");
+
+    /* свечи загораются по очереди */
+
+    allCandles.forEach((candle,index)=>{
+
+        setTimeout(()=>{
+
+            candle.classList.add("lit");
+
+            /* маленькая вспышка */
+
+            createSpark(
+                candle
+            );
+
+        }, index*220);
+
+    });
+
+
+    /* меняем кнопку */
+
+    setTimeout(()=>{
+
+        button.innerHTML=
+            "🎉 С ДНЁМ РОЖДЕНИЯ, НУРАДИЛЬ!";
+
+        button.classList.add("done");
+
+    },2600);
+
+
+    /* конфетти */
+
+    setTimeout(()=>{
+
+        confetti();
+
+    },2600);
+
+
+    /* показываем поздравление */
+
+    setTimeout(()=>{
+
+        const message =
+            document.getElementById("message");
+
+        message.classList.add("show");
+
+        message.scrollIntoView({
+            behavior:"smooth"
+        });
+
+    },3200);
+
+}
+
+
+/* ================= ИСКРЫ ================= */
+
+function createSpark(candle){
+
+    for(let i=0;i<4;i++){
+
+        const spark =
+            document.createElement("div");
+
+        spark.innerHTML="✦";
+
+        spark.style.position="fixed";
+
+        spark.style.color="#9cff00";
+
+        spark.style.fontSize="10px";
+
+        spark.style.zIndex="50";
+
+        const rect =
+            candle.getBoundingClientRect();
+
+        spark.style.left=
+            rect.left+
+            Math.random()*15+
+            "px";
+
+        spark.style.top=
+            rect.top-
+            20+
+            "px";
+
+        spark.style.pointerEvents="none";
+
+        document.body.appendChild(spark);
+
+        spark.animate(
+
+            [
+                {
+                    transform:"translate(0,0)",
+                    opacity:1
+                },
+
+                {
+                    transform:
+                        `translate(
+                            ${(Math.random()-.5)*35}px,
+                            -${20+Math.random()*30}px
+                        )`,
+                    opacity:0
+                }
+            ],
+
+            {
+                duration:700,
+                easing:"ease-out"
+            }
+
+        );
+
+        setTimeout(()=>{
+            spark.remove();
+        },700);
+
+    }
+
+}
+
+
+/* ================= КОНФЕТТИ ================= */
+
+function confetti(){
+
+    const icons=[
+        "💚",
+        "🎉",
+        "⭐",
+        "🎮",
+        "🔥",
+        "🎂"
+    ];
+
+    for(let i=0;i<80;i++){
+
+        const piece =
+            document.createElement("div");
+
+        piece.className="confetti";
+
+        piece.innerText=
+            icons[
+                Math.floor(
+                    Math.random()*icons.length
+                )
+            ];
+
+        piece.style.left=
+            Math.random()*100+"vw";
+
+        piece.style.animationDuration=
+            2+
+            Math.random()*3+
+            "s";
+
+        piece.style.animationDelay=
+            Math.random()*.5+
+            "s";
+
+        document.body.appendChild(piece);
+
+        setTimeout(()=>{
+            piece.remove();
+        },6000);
+
+    }
+
+}
+
+
+/* ================= ФОН ================= */
+
+const canvas =
+    document.getElementById("stars");
+
+const ctx =
+    canvas.getContext("2d");
+
+let stars=[];
+
+function resize(){
+
+    canvas.width=
+        window.innerWidth;
+
+    canvas.height=
+        window.innerHeight;
+
+}
+
+resize();
+
+window.addEventListener(
+    "resize",
+    resize
+);
+
+
+for(let i=0;i<100;i++){
+
+    stars.push({
+
+        x:
+            Math.random()*
+            window.innerWidth,
+
+        y:
+            Math.random()*
+            window.innerHeight,
+
+        size:
+            Math.random()*1.5,
+
+        speed:
+            Math.random()*.3+.05,
+
+        alpha:
+            Math.random()*.5+.1
+
+    });
+
+}
+
+
+function animateStars(){
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    stars.forEach(star=>{
+
+        ctx.beginPath();
+
+        ctx.fillStyle=
+            `rgba(
+                156,
+                255,
+                0,
+                ${star.alpha}
+            )`;
+
+        ctx.arc(
+            star.x,
+            star.y,
+            star.size,
+            0,
+            Math.PI*2
+        );
+
+        ctx.fill();
+
+        star.y-=star.speed;
+
+        if(star.y<0){
+            star.y=
+                canvas.height;
+        }
+
+    });
+
+    requestAnimationFrame(
+        animateStars
+    );
+
+}
+
+animateStars();
+
+</script>
+
+</body>
+</html>
